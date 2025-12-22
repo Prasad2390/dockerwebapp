@@ -7,8 +7,8 @@ services:
     volumes: 
        - appvolume:./Devops-app 
     networks: 
-       -appnetwork 
-       -dbnetwork
+       - appnetwork 
+       - dbnetwork
  dbservice:
     container_name: devops-db-cont 
     build: ./Devops-db 
@@ -17,8 +17,8 @@ services:
     volumes: 
        - dbvolume:./Devops-db 
     networks: 
-        -dbnetwork 
-        -appnetwork
+        - dbnetwork 
+        - appnetwork
 volumes: 
   appvolume: 
   dbvolume:

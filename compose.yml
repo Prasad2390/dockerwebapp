@@ -6,7 +6,7 @@ services:
        - "1111:80" 
     volumes: 
        - appvolume:./Devops-app 
-    network: 
+    networks: 
        -appnetwork 
        -dbnetwork
  dbservice:
@@ -16,7 +16,7 @@ services:
        - "2222:80" 
     volumes: 
        - dbvolume:./Devops-db 
-    network: 
+    networks: 
         -dbnetwork 
         -appnetwork
 volumes: 

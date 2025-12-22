@@ -1,21 +1,21 @@
 services: 
  appservice: 
-    container-name: devops-cont 
+    container_name: devops-cont 
     build: ./Devops-app 
     ports: 
        - "1111:80" 
     volumes: 
-       -appvolume: ./Devops-app 
+       - appvolume:./Devops-app 
     network: 
        -appnetwork 
        -dbnetwork
  dbservice:
-    container-name: devops-db-cont 
+    container_name: devops-db-cont 
     build: ./Devops-db 
     ports: 
        - "2222:80" 
     volumes: 
-       -dbvolume: ./Devops-db 
+       - dbvolume:./Devops-db 
     network: 
         -dbnetwork 
         -appnetwork

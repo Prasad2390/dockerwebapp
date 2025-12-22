@@ -3,7 +3,7 @@ services:
     container_name: devops-cont 
     build: ./Docker-app 
     ports: 
-       - "1111:80" 
+       - "1111:8080" 
     volumes: 
        - appvolume:/Devops-app/myvolume 
     networks: 
@@ -13,7 +13,7 @@ services:
     container_name: devops-db-cont 
     build: ./Docker-db 
     ports: 
-       - "2222:80" 
+       - "2222:3306" 
     volumes: 
        - dbvolume:/Devops-db/myvolume 
     networks: 

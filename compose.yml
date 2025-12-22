@@ -1,16 +1,28 @@
----
-version: "3"
-services:
- devopsdb:
-   container_name: devopsdb
-   image: prasa239/dbimage:v1
-   ports:
-     - "3306:3306"
-
- application:
-   image: prasa239/appimage:v1
-   container_name: containerapp
-   ports:
-     - "1234:8080"
-   depends_on:
-     - "devopsdb"
+services: 
+ appservice: 
+    container-name: devops-cont 
+    build: ./Devops-app 
+    ports: - "1111:80" 
+    volumes: 
+       -appvolume: ./Devops-app 
+    network: 
+       -appnetwork 
+       -dbnetwork
+ dbservice:
+    container-name: devops-db-cont 
+    build: ./Devops-db 
+    ports: - "2222:80" 
+    volumes: 
+       -dbvolume: ./Devops-db 
+    network: 
+        -dbnetwork 
+        -appnetwork
+volumes: 
+  appvolume: 
+  dbvolume:
+networks: 
+  appnetwork: 
+    driver: bridge 
+  dbnetwork: 
+    driver: bridge
+ 
